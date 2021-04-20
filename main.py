@@ -7,9 +7,21 @@ app = FastAPI()
 def root():
     return {"message": "Hello world!"}
 
-@app.get('/method')
-def method_func():
+@app.get('/method',status_code = 200)
+def method_get():
     return{"method": "GET"}
+
+@app.post('/method',status_code = 201)
+def method_post():
+    return{"method": "POST"}
+
+@app.delete('/method',status_code = 200)
+def method_delete():
+    return {"method": "DELETE"}
+
+@app.options('/method', status_code = 200)
+def method_options():
+    return {"method": "OPTIONS"}
 
 
 @app.get('/auth')
